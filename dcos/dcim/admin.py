@@ -9,7 +9,7 @@ class TenantGroupAdmin(admin.ModelAdmin):
 
 
 class TenantAdmin(admin.ModelAdmin):
-    fields = ['pk', 'name', 'slug', 'group']
+    fields = ['name', 'slug', 'group']
 
 
 admin.site.register(TenantGroup, TenantGroupAdmin)

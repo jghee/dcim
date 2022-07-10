@@ -19,5 +19,5 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('dcim/', include('dcim.urls')),
+    path('dcim/', include('dcim.urls')),
 ]

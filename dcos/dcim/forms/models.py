@@ -6,10 +6,10 @@ from dcim.models import *
 class TenantGroupForm(forms.ModelForm):
     class Meta:
         model = TenantGroup
-        fields = ['name', 'slug', ]
+        fields = ['name', 'slug']
 
 
 class TenantForm(forms.ModelForm):
     class Meta:
         model = Tenant
-        fields = ['name', 'slug', 'group', ]
+        fields = ['name', 'slug', 'group']
