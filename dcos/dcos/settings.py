@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dcim.apps.DcimConfig',
+    'django-tables2',
 ]
 
 MIDDLEWARE = [

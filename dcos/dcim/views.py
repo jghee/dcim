@@ -2,11 +2,12 @@ from django.shortcuts import render
 
 # Create your views here.
 from dcim.models import Tenant
-from dcos.views.object_views import ObjectView
+from dcos.views.object_views import ObjectView, ObjectListView
 
 
 def home(request):
     return render(request, "base.html")
+
 
 class TenantView(ObjectView):
     queryset = Tenant.objects.prefetch_related('group')
@@ -35,4 +36,8 @@ class TenantView(ObjectView):
         }
 
 
-
+class TenantListView(ObjectView):
+    queryset = Tenant.object.all()
+    # filterset =
+    # filterset_form =
+    # table = tables.TenantTable

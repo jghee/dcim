@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404
 
 from django.views.generic import View
 
+
 class BaseObjectView(View):
     queryset = None
     template_name = None
@@ -24,3 +25,13 @@ class BaseObjectView(View):
             instance: The object being viewed
         """
         return {}
+
+
+class BaseMultiObjectView(View):
+    queryset = None
+    # table = None
+    template_name = None
+
+    def get_extra_context(self, request):
+        return {}
+

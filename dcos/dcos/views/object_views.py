@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from .base import BaseObjectView
+from .base import BaseObjectView, BaseMultiObjectView
 
 
 class ObjectView(BaseObjectView):
@@ -39,3 +39,35 @@ class ObjectView(BaseObjectView):
             **self.get_extra_context(request, instance),
         })
 
+
+class ObjectListView(BaseMultiObjectView):
+    template_name = 'dcim/object_list.html'
+    # filterset = None
+    # filterset_form = None
+
+    # def get_table(self, request):
+    #     table = self.table(self.queryset)
+    #     if 'pk' in table.base_columns:
+    #         table.columns.show('pk')
+    #
+    #     return table
+
+    #
+    # Request handlers
+    #
+    def get(self, request):
+        model = self.queryset.model
+
+        # if self.filterset:
+        #     self.filterset = self.filterset(request,GET, self.queryset).qs
+
+        # table = self.get_table(request)
+
+        context = {
+            'model': model,
+            # 'talbe': table,
+            # 'filter_form': self.filterset_form(request.GET, label_suffix='') if self.filterset_form else None,
+            **self.get_extra_context(request),
+        }
+
+        return redirect(request, self.template_name, context)
