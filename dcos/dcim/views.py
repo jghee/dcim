@@ -36,8 +36,8 @@ class TenantView(ObjectView):
         }
 
 
-class TenantListView(ObjectView):
-    queryset = Tenant.object.all()
+class TenantListView(ObjectListView):
+    queryset = Tenant.objects.all()
     # filterset =
     # filterset_form =
     # table = tables.TenantTable

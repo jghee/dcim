@@ -15,7 +15,7 @@ urlpatterns = [
     # path('tenant-groups/<int:pk>/delete/', views.TenantGroupDeleteView.as_view(), name='tenantgroup_delete'),
 
     # Tenants
-    # path('tenants/', views.TenantListView.as_view(), name='tenant_list'),
+    path('tenants/', views.TenantListView.as_view(), name='tenant_list'),
     # path('tenants/add/', views.TenantEditView.as_view(), name='tenant_add'),
     # path('tenants/edit/', views.TenantBulkEditView.as_view(), name='tenant_bulk_edit'),
     path('tenants/<int:pk>/', views.TenantView.as_view(), name='tenant'),

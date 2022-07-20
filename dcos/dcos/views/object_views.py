@@ -56,8 +56,11 @@ class ObjectListView(BaseMultiObjectView):
     # Request handlers
     #
     def get(self, request):
-        model = self.queryset.model
-
+        model = self.queryset
+            # .model
+        q = request.GET.get('q', '')
+        if q:
+            model = model.filter(name__icontains=q)
         # if self.filterset:
         #     self.filterset = self.filterset(request,GET, self.queryset).qs
 
@@ -67,7 +70,8 @@ class ObjectListView(BaseMultiObjectView):
             'model': model,
             # 'talbe': table,
             # 'filter_form': self.filterset_form(request.GET, label_suffix='') if self.filterset_form else None,
+            'q': q,
             **self.get_extra_context(request),
         }
 
-        return redirect(request, self.template_name, context)
+        return render(request, self.template_name, context)
