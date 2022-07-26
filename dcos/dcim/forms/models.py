@@ -2,6 +2,10 @@ from django import forms
 
 from dcim.models import *
 
+__all__ = (
+    'TenantGroupForm',
+    'TenantForm',
+)
 
 class TenantGroupForm(forms.ModelForm):
     class Meta:

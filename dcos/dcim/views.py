@@ -2,7 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 from dcim.models import Tenant
-from dcos.views.object_views import ObjectView, ObjectListView
+from dcim import forms
+from dcos.views.object_views import ObjectView, ObjectListView, ObjectEditView
 
 
 def home(request):
@@ -41,3 +42,7 @@ class TenantListView(ObjectListView):
     # filterset =
     # filterset_form =
     # table = tables.TenantTable
+
+class TenantEditView(ObjectEditView):
+    queryset = Tenant.objects.all()
+    form = forms.TenantForm
