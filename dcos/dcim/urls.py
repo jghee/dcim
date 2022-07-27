@@ -6,7 +6,9 @@ from . import views
 app_name = 'dcim'
 
 urlpatterns = [
+    # Temporary
     path('', views.home, name='home'),
+    path('rack_table/', views.test_rack_table, name='rack_table'),
     # Tenant groups
     # path('tenant-groups/', views.TenantGroupListView.as_view(), name='tenantgroup_list'),
     # path('tenant-groups/add/', views.TenantGroupEditView.as_view(), name='tenantgroup_add'),

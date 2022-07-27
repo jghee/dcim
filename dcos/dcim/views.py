@@ -10,6 +10,11 @@ def home(request):
     return render(request, "base.html")
 
 
+def test_rack_table(request):
+    rack_size = range(1, 43)
+    return render(request, "dcim/rack_table.html", {'rack_size': reversed(rack_size)})
+
+
 class TenantView(ObjectView):
     queryset = Tenant.objects.prefetch_related('group')
 
